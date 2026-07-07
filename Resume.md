@@ -11,7 +11,7 @@ Education: B.E. Electronics and Communication Engineering, Anna University
 
 Forward-deployed AI and integration specialist with 12+ years of hands-on experience designing, building, and delivering scalable APIs, distributed backend systems, enterprise data platforms, and production-grade AI systems across aviation, banking, and insurance domains.
 
-Currently leading AI engineering for flight planning systems at Jeppesen ForeFlight, building agentic and deterministic workflows using LangGraph, FastAPI, OpenEval, Azure Event Hub, Redis, and frontier LLM platforms. Experienced in translating operational pain points into deployable AI-assisted workflows through direct collaboration with customers, domain experts, product stakeholders, and engineering teams.
+Currently leading AI engineering for aeronautical data extraction and live human-in-the-loop verification workflows at Jeppesen ForeFlight, building agentic and deterministic systems for AIRAC source documents using LangGraph, FastAPI, WebSocket streaming, Redis, Azure AI Document Intelligence, and frontier LLM platforms. Experienced in translating operational pain points into deployable AI-assisted workflows through direct collaboration with customers, domain experts, product stakeholders, and engineering teams.
 
 Strong background in microservices architecture, REST APIs, OAuth-based security, event-driven systems, ELT pipelines, Databricks Lakehouse, feature engineering, statistical modeling, and regulated system design. Regularly evaluates and integrates OpenAI, Azure OpenAI, and Anthropic Claude capabilities for enterprise AI use cases, with focus on reliability, governance, observability, model evaluation, human-in-the-loop controls, and production readiness.
 
@@ -66,7 +66,7 @@ Strong background in microservices architecture, REST APIs, OAuth-based security
 
 ## Current Assignment
 
-Lead a 7-member engineering team across two parallel workstreams: BAU and post-production support for an enterprise microservices and data platform built on Spring Boot, PySpark, and Databricks, alongside iterative development of an Agentic AI system currently in beta using LangGraph, frontier LLM models, FastAPI, OpenEval, Azure Event Hub, Redis, and Kubernetes.
+Lead a 7-member engineering team across two parallel workstreams: BAU and post-production support for an enterprise microservices and data platform built on Spring Boot, PySpark, and Databricks, alongside iterative development of an Agentic AI aeronautical data extraction system using LangGraph, frontier LLM models, FastAPI, WebSocket streaming, Redis, Azure AI Document Intelligence, and PostgreSQL.
 
 - Work as Technical Product Owner and hands-on Lead Developer, defining NFRs, shaping architecture, building evaluation frameworks, and mentoring engineers through delivery.
 - Operate in a forward-deployed model by working directly with aviation stakeholders, operational users, and engineering teams to identify workflow bottlenecks and convert them into deployable AI-assisted capabilities.
@@ -81,31 +81,32 @@ Lead a 7-member engineering team across two parallel workstreams: BAU and post-p
 June 2022 - Present | Bengaluru, India  
 Jeppesen ForeFlight spun off as an independent entity from Boeing India on November 1, 2025.
 
-#### Assignment 1: Flight Route Optimizer
+#### Assignment 1: AI-Driven Aeronautical Data Extraction
 
-**AI-Driven Flight Planning and Compliance Automation**
+**Live Human-in-the-Loop Verification for AIRAC Source Documents**
 
-Architected and delivered the first iteration of an agentic AI-assisted flight planning system as a chatbot-based MVP, transforming legacy manual route drafting workflows while preserving deterministic safety controls, regulatory compliance, auditability, and human approval for safety-critical decisions.
+Architected a real-time agentic AI extraction system for aeronautical source documents and AIRAC cycle data, replacing static batch-extraction-then-review workflows with a live streaming interface that enables human verification of AI-extracted data as it is generated, while preserving deterministic accuracy controls and data quality standards modeled on DO-200A/B principles.
 
 **Business Impact**
 
-- Reduced flight route drafting time from approximately 6 hours to 20 minutes using AI-assisted planning with enforced human-in-the-loop approval.
-- Enabled dispatchers to evaluate 2-3x more route options per day by automating analysis of weather, NOTAMs, airspace restrictions, and commercial routing constraints.
-- Established traceable AI decision workflows with full audit trails to support aviation safety governance and operational compliance.
-- Embedded Explainable AI and Responsible AI layers to improve transparency, accountability, and trust in AI-generated recommendations.
-- Implemented agent-to-agent communication patterns for coordination across specialized agents.
+- Reduced document verification cycle time from an estimated 3-4 hours of manual page-by-page review to under 30 minutes using a live WebSocket-streamed extraction interface with in-flight human verification.
+- Enabled 20+ page AIRAC cycle-over-cycle comparison through a deterministic diff engine, cutting manual cross-referencing effort by an estimated 80%+ using automated, color-coded change detection.
+- Achieved 90%+ field-level extraction accuracy on structured text fields including coordinates, frequencies, and identifiers using a hybrid OCR and LLM reasoning pipeline validated against a 100+ example evaluation set.
+- Established a self-improving reliability loop where every human correction enriches the evaluation dataset, supporting continuous prompt and model performance tracking without separate labeling effort.
+- Reduced human review burden to an estimated 10-15% of extracted fields through confidence-tiered routing.
+- Maintained full correction provenance including original AI value, corrected value, reviewer, and timestamp to support audit-trail and regulatory governance requirements.
 
 **Technical Contributions**
 
-- Architected a LangGraph-based multi-agent orchestration framework coordinating specialized agents for weather analysis, compliance validation, fuel estimation, and route optimization.
-- Designed deterministic rule-based validation layers and human-in-the-loop approval gates for safety-critical outputs.
-- Implemented end-to-end audit trails capturing agent reasoning, validation checkpoints, and human overrides.
-- Integrated real-time aviation data sources using retrieval-based patterns and structured context injection.
-- Evaluated and integrated OpenAI, Azure OpenAI, and Anthropic Claude capabilities across route reasoning, latency, reliability, safety, and explainability.
-- Worked in a forward-deployed capacity with flight operations users and compliance stakeholders to validate AI-assisted workflows against real operational constraints.
+- Architected a LangGraph-based agentic pipeline with native checkpointing, enabling stateful pause, correct, and resume behavior during extraction without data loss or reprocessing.
+- Designed a dual-channel WebSocket protocol unifying live extraction-state streaming and conversational chatbot interaction over a single connection.
+- Built a synced-scroll split-pane UI combining PDF source view, live extraction panel, and chat with auto-follow and manual-override navigation.
+- Implemented a deterministic diff engine for structured cycle-over-cycle comparison, decoupling exact-match logic in code from LLM-based narrative summarization.
+- Evaluated and benchmarked extraction backends including Claude and Gemini VLM reasoning, specialized OCR models, and Azure AI Document Intelligence to select accuracy, cost, and latency tradeoffs per field type.
+- Designed Redis-backed session state and pub/sub architecture to synchronize the extraction pipeline, correction handler, and chatbot around a single source of truth.
 
 **Key Technologies**  
-LangGraph, Python, Azure OpenAI, OpenAI, Anthropic Claude, FastAPI, PostgreSQL, Redis, Kubernetes, Azure Event Hub, MCP, LangSmith, Azure Entra ID, GitLab CI/CD, A2A, Docker, Angular
+LangGraph, Python, FastAPI, WebSocket, Redis, Claude API, Azure AI Document Intelligence, Pydantic, React, PostgreSQL
 
 #### Assignment 2: JAD Online
 
